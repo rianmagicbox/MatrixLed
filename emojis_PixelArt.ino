@@ -25,6 +25,36 @@ CRGB vermelho = CRGB ( 255, 0, 0);
 
 CRGB bege = CRGB ( 240, 150, 70);
 
+CRGB amarelo_escuro = CRGB ( 85, 45, 0);
+
+CRGB amarelo_mais_escuro = CRGB ( 40, 20, 0);
+
+CRGB roxo_claro = CRGB ( 109, 0, 92 );
+
+CRGB roxo = CRGB ( 23, 0, 28 );
+
+uint8_t enderman[] = {
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  1, 2, 1, 0, 0, 1, 2, 1,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0
+};
+
+uint8_t pikachu[] = {
+  0, 2, 2, 0, 0, 0, 0, 2,
+  0, 0, 3, 4, 0, 0, 0, 4,
+  0, 0, 0, 3, 3, 3, 3, 4,
+  4, 4, 0, 3, 2, 3, 3, 2,
+  4, 4, 0, 6, 3, 3, 3, 4,
+  0, 7, 0, 3, 4, 4, 4, 0,
+  0, 7, 3, 4, 3, 4, 3, 0,
+  0, 0, 3, 4, 7, 7, 4, 0
+};
+
 uint8_t pig[] = {
   1, 1, 1, 1, 1, 1, 1, 1,
   1, 1, 1, 1, 1, 1, 1, 1,
@@ -114,7 +144,19 @@ uint16_t XYsafe( uint8_t x, uint8_t y)
 
 void loop()
 {
-    
+    /*uint32_t ms = millis();
+    int32_t yHueDelta32 = ((int32_t)cos16( ms * (27/1) ) * (350 / kMatrixWidth));
+    int32_t xHueDelta32 = ((int32_t)cos16( ms * (39/1) ) * (310 / kMatrixHeight));
+    DrawOneFrame( ms / 65536, yHueDelta32 / 32768, xHueDelta32 / 32768);
+    if( ms < 5000 ) {
+      FastLED.setBrightness( scale8( BRIGHTNESS, (ms * 256) / 5000));
+    } else {
+      FastLED.setBrightness(BRIGHTNESS);
+    }*/
+
+    /*for( int led = 0; led < 4; led++) {
+      leds[ vermelho[led]] = CRGB( 255, 0 ,0);
+    }*/
 
     for( int led = 0; led < 64; led++){
       if ( zombie[led] == 0 ) {
@@ -165,6 +207,47 @@ void loop()
       }
       if ( ovelha[led] == 3 ) {
           leds[ led ] = rosa;
+      }
+  }
+  
+    FastLED.show();
+
+    delay(5000);
+
+    for( int led = 0; led < 64; led++){
+      if ( pikachu[led] == 0 ) {
+          leds[ led ] = branco;
+      }
+      if ( pikachu[led] == 2 ) {
+          leds[ led ] = preto;
+      }
+      if ( pikachu[led] == 3 ) {
+          leds[ led ] = amarelo;
+      }
+      if ( pikachu[led] == 4 ) {
+          leds[ led ] = amarelo_escuro;
+      }
+      if ( pikachu[led] == 6 ) {
+          leds[ led ] = vermelho;
+      }
+      if ( pikachu[led] == 7 ) {
+          leds[ led ] = amarelo_mais_escuro;
+      }
+  }
+  
+    FastLED.show();
+
+    delay(5000);
+
+    for( int led = 0; led < 64; led++){
+      if ( enderman[led] == 0 ) {
+          leds[ led ] = preto;
+      }
+      if ( enderman[led] == 1 ) {
+          leds[ led ] = roxo_claro;
+      }
+      if ( enderman[led] == 2 ) {
+          leds[ led ] = roxo;
       }
   }
   
