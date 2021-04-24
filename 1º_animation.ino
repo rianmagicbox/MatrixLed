@@ -74,7 +74,7 @@ void loop()
       for( int y = 0; y < 8; y++){
         uint8_t corazul = 255;
         uint8_t corred = 5 * x * y + 10;
-        uint8_t corverde = 245 - 5 * x * y;
+        uint8_t corverde = 5 * (7 - x) * (7 - y) + 10;
         leds[XY(x, y)] = CRGB ( corred, corverde, corazul);
       }
     }
@@ -85,7 +85,7 @@ void loop()
       for( int y = 0; y < 8; y++){
         uint8_t corazul = 255;
         uint8_t corred = 5 * (7 - x) * y + 10;
-        uint8_t corverde = 5 * x * (7 - y);
+        uint8_t corverde = 5 * x * (7 - y) + 10;
         leds[XY(x, y)] = CRGB ( corred, corverde, corazul);
       }
     }
@@ -94,9 +94,10 @@ void loop()
 
     for( int x = 0; x < 8; x++){
       for( int y = 0; y < 8; y++){
+        
         uint8_t corazul = 255;
-        uint8_t corred = 255 - 5 * x * y;
-        uint8_t corverde = 5 * x * y;
+        uint8_t corred = 5 * (7 - x) * (7 - y) + 10;
+        uint8_t corverde = 5 * x * y + 10;
         leds[XY(x, y)] = CRGB ( corred, corverde, corazul);
       }
     }
@@ -107,7 +108,7 @@ void loop()
       for( int y = 0; y < 8; y++){
         uint8_t corazul = 255;
         uint8_t corred = 5 * x * (7 - y) + 10;
-        uint8_t corverde = 5 * (7 - x) * y;
+        uint8_t corverde = 5 * (7 - x) * y + 10;
         leds[XY(x, y)] = CRGB ( corred, corverde, corazul);
       }
     }
